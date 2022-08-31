@@ -1,0 +1,19 @@
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::921483055369:role/EKS_Node_Role
+      username: system:node:{{EC2PrivateDNSName}}
+  mapUsers: |
+    - userarn: arn:aws:iam::935840844891:user/Mithun          # Update your user arn here
+      username: Mithun                                        # Update your user name.
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2020-10-19T03:35:20Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "792449"
+  selfLink: /api/v1/namespaces/kube-system/configmaps/aws-auth
+  uid: 8135dcd1-90e6-4dfb-872f-636601475aca
